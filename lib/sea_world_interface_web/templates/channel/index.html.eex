@@ -1,0 +1,24 @@
+<h1>Listing Channels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for channel <- @channels do %>
+    <tr>
+      <td><%= channel.name %></td>
+
+      <td>
+        <span><%= link "Join", to: Routes.channel_path(@conn, :show, channel) %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Channel", to: Routes.channel_path(@conn, :new) %></span>

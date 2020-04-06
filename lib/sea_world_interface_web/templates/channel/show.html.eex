@@ -1,0 +1,30 @@
+<script>
+  window.game_id = "<%= @channel.id %>";  
+  window.player_id = "<%= @player_id %>";  
+</script>
+<div class="row"> 
+  <div class="column column-60"> 
+    <div class="game-container">
+      <div id="board"></div> 
+    </div>
+  </div>
+  <div class="column column-40">
+    <div class="container chat-container">
+      <div class="row status-container">
+        <div class="column">
+          <i class="status" id="status"></i>
+          <small id="opponent-status">
+            No opponent
+          </small>
+        </div>
+      </div>
+      <div class="row message-container">
+        <div class="column messages" id="messages"></div>
+      </div>
+      <div class="row text-container">
+        <textarea type="text" placeholder="Enter message..." id="send-message"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+

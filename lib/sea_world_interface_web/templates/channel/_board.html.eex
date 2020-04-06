@@ -1,0 +1,7 @@
+
+<div class="board">
+  <%= for x <- @row, y <- @col  do %>
+    <div class="field " style="left: <%= x * @field_size %>px; top: <%= y * @field_size %>px;">
+    </div>
+  <% end %>
+</div>
