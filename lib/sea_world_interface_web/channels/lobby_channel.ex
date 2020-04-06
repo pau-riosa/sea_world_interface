@@ -21,18 +21,20 @@ defmodule SeaWorldInterfaceWeb.LobbyChannel do
     cond do
       state.penguin.name != nil && state.whale.name != nil ->
         broadcast!(socket, "opponent_status", %{"status" => "true"})
+        {:noreply, socket}
 
       state.penguin.name == player_id ->
-        broadcast!(socket, "opponent_status", %{"status" => "true"})
+        broadcast!(socket, "opponent_status", %{"status" => "false"})
+        {:noreply, socket}
 
       state.whale.name == player_id ->
-        broadcast!(socket, "opponent_status", %{"status" => "true"})
+        broadcast!(socket, "opponent_status", %{"status" => "false"})
+        {:noreply, socket}
 
       true ->
         broadcast!(socket, "opponent_status", %{"status" => "false"})
+        {:noreply, socket}
     end
-
-    {:noreply, socket}
   end
 
   @doc """

@@ -37,7 +37,6 @@ defmodule SeaWorldInterfaceWeb.GameChannel do
 
   defp add_player(%{rules: %{state: :waiting_for_player}} = state, game, player_id, socket) do
     Game.add_player_whale(game, player_id)
-    send(self(), {:opponent_status, true})
     {:ok, assign(socket, :game, game)}
   end
 
